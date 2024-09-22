@@ -29,28 +29,42 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
 3) Install torch and torch vision on Jetson Nano
    
    2-1) Go to https://forums.developer.nvidia.com/t/pytorch-for-jetson
+   
    2-2) you can see all versions of pytorch on the jetpack 4, copy the name of torch version
+   
    2-3) wget https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl -O << name of torch version>>
+   
    2-3-1) for excample: wget https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl -O  torch-1.10.0-cp36-cp36m-linux_aarch64.whl
+   
    2-4) sudo apt-get install python3-pip libopenblas-base libopenmpi-dev libomp-dev
+   
    2-5) pip3 install 'Cython<3'
+   
    2-6) pip3 install <<name of torch version>> for example: pip3 install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
    
-4) Install torchvision compatible with Torch:
+5) Install torchvision compatible with Torch:
    
    3-1) to install torchvision you have to fid the compatible version of torchvision with your torch, to address this issue, on the webpage all version of torch and its torchvision are mentioned.
+   
    3-2) sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev
+   
    3-3) git clone --branch <version of torchvision> https://github.com/pytorch/vision torchvision
+   
    3-3-1) for example: git clone --branch v0.11.1 https://github.com/pytorch/vision torchvision
+   
    3-4) cd torchvision
+   
    3-5) export BUILD_VERSION=0.x.0 where 0.x.0 is the torchvision version( for example 0.11.1)
+   
    3-6) python3 setup.py install --user
+   
    3-7) cd ../
+   
    3-8) pip install 'pillow<7'
    
-5) Verification Torch and TorchVision
+7) Verification Torch and TorchVision
    
-   >>> import torch
+  >>> import torch
   >>> print(torch.__version__)
   >>> print('CUDA available: ' + str(torch.cuda.is_available()))
   >>> print('cuDNN version: ' + str(torch.backends.cudnn.version()))
