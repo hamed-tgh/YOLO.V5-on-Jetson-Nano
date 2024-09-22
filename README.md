@@ -15,11 +15,15 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
    1-1) sudo apt-get install nano
    
    1-2) nano ~/.bashrc
+   
    1-3) at the end of file add bellow command:
+   
    1-4) export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
         export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\
                          ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+   
    1-5) ~/.bashrc
+   
    1-6) if everything work well you have to see cuda version by running <<nvcc --version>> on the terminal.
    
 3) Install torch and torch vision on Jetson Nano
