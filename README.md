@@ -11,6 +11,7 @@ The Jetson Nano module is a small AI computer that gives you the performance and
 Before I start to expalin how to run Yolo on jetson, I have to mention that the last version of Jetpack is 4.6.1 which consists of Python 3.6.9. However, Yolo family(Ultrlytics) works with python>=3.8. Furthermore, some of Yolo requirments package are not developed for arm64. As a result, in this tutorial, some part of our work fucos on installing them.
 
 1) By default Jetpack comes with cuda 10.2. However, nvcc command are not recognised. To address this issue you have to add cuda to ubunto Environment path by bellow commands:
+   
    1-1) sudo apt-get install nano
    1-2) nano ~/.bashrc
    1-3) at the end of file add bellow command:
@@ -19,7 +20,8 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
                          ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
    1-5) ~/.bashrc
    1-6) if everything work well you have to see cuda version by running <<nvcc --version>> on the terminal.
-2) Install torch and torch vision on Jetson Nano
+   
+3) Install torch and torch vision on Jetson Nano
    2-1) Go to https://forums.developer.nvidia.com/t/pytorch-for-jetson
    2-2) you can see all versions of pytorch on the jetpack 4, copy the name of torch version
    2-3) wget https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl -O << name of torch version>>
@@ -27,7 +29,7 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
    2-4) sudo apt-get install python3-pip libopenblas-base libopenmpi-dev libomp-dev
    2-5) pip3 install 'Cython<3'
    2-6) pip3 install <<name of torch version>> for example: pip3 install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
-3) Install torchvision compatible with Torch:
+4) Install torchvision compatible with Torch:
    3-1) to install torchvision you have to fid the compatible version of torchvision with your torch, to address this issue, on the webpage all version of torch and its torchvision are mentioned.
    3-2) sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev
    3-3) git clone --branch <version of torchvision> https://github.com/pytorch/vision torchvision
@@ -37,7 +39,7 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
    3-6) python3 setup.py install --user
    3-7) cd ../
    3-8) pip install 'pillow<7'
-4) Verification Torch and TorchVision
+5) Verification Torch and TorchVision
    >>> import torch
   >>> print(torch.__version__)
   >>> print('CUDA available: ' + str(torch.cuda.is_available()))
