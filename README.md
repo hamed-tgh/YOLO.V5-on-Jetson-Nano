@@ -74,21 +74,27 @@ Before I start to expalin how to run Yolo on jetson, I have to mention that the 
      print('Tensor a = ' + str(a))
      b = torch.randn(2).cuda()
      print('Tensor b = ' + str(b))
-  >>> c = a + b
-  >>> print('Tensor c = ' + str(c))
+     c = a + b
+     print('Tensor c = ' + str(c))
 
 5) after installing torch and torchvision we are going to install Yolo and its dependencies.
    
   5-1) clone our repository
+  
   5-2) on this repository we only used yolov5n if you want to work with other versions you have to download the weights from
+  
   5-2-1) https://github.com/ultralytics/yolov5/releases/tag/v6.2
+  
   5-2-2) download the desired verion on yolo under the asset part
 
 6) after cloning the repository you can see Yolo requirements on requirments.txt. However, some of its dependencies does not install with pip
    
   6-1) pip3 install tqdm
+  
   6-2) pip3 install psutil
+  
   6-3) pip3 install thop
+  
   6-4) sudo apt install python-seaborn
 
 7) Run python3 version1.py to run Yolo on CSI Camera
